@@ -8,8 +8,8 @@ import meteostat as ms
     ms.Point( lat , long )  緯度 , 經度
 """
 POINT2 = ms.Point(50.1155, 8.6842, 113)  # Try with your location
-POINT = ms.Point(26.050336646717362, 119.33699261643062)
-START = date(2025, 10, 1)
+POINT = ms.Point(24.160887904904108, 120.65667192896451)
+START = date(2025, 1, 1)
 END = date(2025, 12, 31)
 
 # 先找可用的 偵測點
@@ -21,6 +21,7 @@ print("-------------- Time Serie ------------")
 print( ts )
 print("-------------- Time Serie ------------")
 df = ms.interpolate(ts, POINT).fetch()
+df.to_csv("./weather_tc.csv", index=False)
 # df --> sql server database 存放 ---> power bi
 # df --> power bi 做分析 ( df to_csv  --> import power bi)
 #print(df)
